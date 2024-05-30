@@ -15,6 +15,7 @@ use log::info;
 /// ``
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    env_logger::init();
 
     let client = Client::new_from_response_type(
         ResponseType::CountTokens,

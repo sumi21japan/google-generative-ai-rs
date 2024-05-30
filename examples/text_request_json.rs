@@ -18,6 +18,7 @@ use google_generative_ai_rs::v1::{
 /// ``
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    env_logger::init();
 
     #[cfg(not(feature = "beta"))]
     {
