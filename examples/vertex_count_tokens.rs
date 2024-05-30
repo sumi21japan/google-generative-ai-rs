@@ -22,7 +22,6 @@ use log::info;
 /// ``
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    env_logger::init();
     let region = env::var("GCP_REGION_NAME").unwrap().to_string();
     let project_id = env::var("GCP_PROJECT_ID").unwrap().to_string();
 
