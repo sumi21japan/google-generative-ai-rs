@@ -82,6 +82,7 @@ pub enum Model {
     GeminiProVision,
     // TODO Embedding001
     Gemini1_5Flash,
+    Gemini2_0Flash,
 }
 impl fmt::Display for Model {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
@@ -94,6 +95,7 @@ impl fmt::Display for Model {
             Model::GeminiProVision => write!(f, "gemini-pro-vision"),
             // TODO Model::Embedding001 => write!(f, "embedding-001"),
             Model::Gemini1_5Flash => write!(f, "gemini-1.5-flash-latest"),
+            Model::Gemini2_0Flash => write!(f, "gemini-2.0-flash-latest"),
         }
     }
 }
