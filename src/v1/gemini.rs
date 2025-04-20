@@ -83,6 +83,7 @@ pub enum Model {
     // TODO Embedding001
     Gemini1_5Flash,
     Gemini2_0Flash,
+    Gemini2_5FlashPreview,
 }
 impl fmt::Display for Model {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
@@ -96,6 +97,7 @@ impl fmt::Display for Model {
             // TODO Model::Embedding001 => write!(f, "embedding-001"),
             Model::Gemini1_5Flash => write!(f, "gemini-1.5-flash-latest"),
             Model::Gemini2_0Flash => write!(f, "gemini-2.0-flash"),
+            Model::Gemini2_5FlashPreview => write!(f, "gemini-2.5-flash-preview-04-17"),
         }
     }
 }
@@ -319,6 +321,15 @@ pub mod request {
 
         #[cfg(feature = "beta")]
         pub response_mime_type: Option<String>,
+
+        #[serde(skip_serializing_if = "Option::is_none")]
+        pub thinking_config: Option<ThinkingConfig>,
+    }
+
+    #[derive(Debug, Clone, Deserialize, Serialize)]
+    #[serde(rename_all = "camelCase")]
+    pub struct ThinkingConfig {
+        pub thinking_budget: Option<i32>,
     }
 
     #[cfg(feature = "beta")]
